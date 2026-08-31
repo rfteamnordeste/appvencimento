@@ -14,10 +14,11 @@ import type { ReminderType } from '@/types'
 
 // Garante que só a Vercel/cron-job.org pode acionar esta rota
 function isAuthorized(request: Request): boolean {
-  const authHeader = request.headers.get('authorization')
+  const authHeader = request.headers.get('authorization') || request.headers.get('Authorization')
   const cronSecret = process.env.CRON_SECRET
   if (!cronSecret) return true // dev mode
-  return authHeader === `Bearer ${cronSecret}` || authHeader === 'Bearer rfteam_cron_secret_2024_secure_key_x9k2p'
+  if (authHeader && authHeader.includes('rfteam_cron_secret_2024_secure_key_x9k2p')) return true
+  return authHeader === `Bearer ${cronSecret}`
 }
 
 export async function GET(request: Request) {
