@@ -102,13 +102,13 @@ export async function GET(request: Request) {
         const dueDate = getNextDueDate(student.due_day, timezone)
         const cycleKey = buildCycleKey(academy.id, student.id, dueDate)
 
-        // IDEMPOTÊNCIA: verificar se já existe log sent para este cycle_key + reminder_type
+        // IDEMPOTÊNCIA: verificar se já existe log para este aluno + tipo no dia de hoje
         const { data: existingLog } = await supabase
           .from('reminder_logs')
           .select('id, status')
           .eq('student_id', student.id)
           .eq('reminder_type', reminderType)
-          .eq('scheduled_for', format(dueDate, 'yyyy-MM-dd'))
+          .eq('scheduled_for', today)
           .in('status', ['sent', 'pending'])
           .maybeSingle()
 
