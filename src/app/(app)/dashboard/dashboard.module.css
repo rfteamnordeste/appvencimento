@@ -1,0 +1,162 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.pageTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.academyName {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+.contextMsg {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 480px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.statValue {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+.statSuccess { color: var(--color-success); }
+.statWarning { color: var(--color-warning); }
+.statDanger { color: var(--color-danger); }
+.statNeutral { color: var(--color-neutral); }
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.statSub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.section {
+  margin-bottom: var(--space-8);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.sectionBadge {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.reminderList, .upcomingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.reminderItem, .upcomingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.upcomingItem {
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.upcomingItem:hover {
+  background: var(--color-surface-2);
+  border-color: var(--color-border-light);
+}
+
+.reminderInfo, .upcomingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.reminderName, .upcomingName {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reminderType, .upcomingDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.reminderActions {
+  flex-shrink: 0;
+}
+
+.confirmRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.confirmText {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}

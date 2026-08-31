@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Rhino silhouette - geometric minimalist -->
+  <!-- Body -->
+  <ellipse cx="52" cy="62" rx="28" ry="20" fill="#fff"/>
+  <!-- Head -->
+  <ellipse cx="25" cy="52" rx="16" ry="13" fill="#fff"/>
+  <!-- Horn -->
+  <polygon points="14,42 20,28 24,42" fill="#fff"/>
+  <!-- Small bump horn -->
+  <polygon points="20,42 24,35 27,42" fill="#fff"/>
+  <!-- Neck connection -->
+  <rect x="36" y="46" width="12" height="14" rx="4" fill="#fff"/>
+  <!-- Ear -->
+  <ellipse cx="29" cy="40" rx="4" ry="5" fill="#fff"/>
+  <!-- Eye -->
+  <circle cx="19" cy="50" r="2.5" fill="#0a0a0a"/>
+  <!-- Legs -->
+  <rect x="30" y="78" width="8" height="14" rx="3" fill="#fff"/>
+  <rect x="44" y="78" width="8" height="14" rx="3" fill="#fff"/>
+  <rect x="58" y="78" width="8" height="14" rx="3" fill="#fff"/>
+  <rect x="68" y="78" width="8" height="13" rx="3" fill="#fff"/>
+  <!-- Tail -->
+  <path d="M78 58 Q90 50 88 65" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
