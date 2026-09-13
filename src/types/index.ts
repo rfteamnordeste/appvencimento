@@ -9,7 +9,7 @@ export type Json =
 export type StudentStatus = 'active' | 'inactive'
 export type ReminderType = 'd10' | 'd5' | 'd0'
 export type ReminderStatus = 'pending' | 'sent' | 'failed'
-export type ReminderChannel = 'whatsapp_link' | 'whatsapp_api'
+export type ReminderChannel = 'whatsapp_link' | 'whatsapp_api' | 'whatsapp_link_manual_bulk'
 
 export interface Academy {
   id: string

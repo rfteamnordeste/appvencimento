@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
+
+export const dynamic = 'force-dynamic'
 import { format } from 'date-fns'
 import { toZonedTime } from 'date-fns-tz'
 import {

@@ -108,6 +108,36 @@ export default function DashboardClient({ stats, upcoming, pendingReminders, aca
             <StatCard label="Vencidos" value={stats.overdue} color="danger" />
           </div>
 
+          {/* Card de atalho: Disparo Manual */}
+          <div style={{ marginBottom: 'var(--space-8)' }}>
+            <Link
+              href="/disparo"
+              className="card"
+              id="dashboard-disparo-card"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                textDecoration: 'none',
+                background: 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08))',
+                borderColor: 'rgba(99,102,241,0.3)',
+                transition: 'border-color 0.2s, background 0.2s',
+              }}
+            >
+              <div>
+                <div style={{ fontSize: 'var(--font-size-base)', fontWeight: 700 }}>
+                  🚀 Disparo Manual
+                </div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-secondary)', marginTop: '4px' }}>
+                  {pendingReminders.length > 0
+                    ? `${pendingReminders.length} lembrete${pendingReminders.length !== 1 ? 's' : ''} pendente${pendingReminders.length !== 1 ? 's' : ''} hoje`
+                    : 'Envie lembretes para vários alunos de uma vez'}
+                </div>
+              </div>
+              <span style={{ fontSize: 'var(--font-size-2xl)', opacity: 0.5 }}>→</span>
+            </Link>
+          </div>
+
           {/* Lembretes pendentes de hoje */}
           {pendingReminders.length > 0 && (
             <section className={styles.section}>

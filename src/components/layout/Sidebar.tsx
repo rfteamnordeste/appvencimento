@@ -8,6 +8,7 @@ import styles from './Sidebar.module.css'
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: '⬡' },
   { href: '/alunos', label: 'Alunos', icon: '👥' },
+  { href: '/disparo', label: 'Disparo Manual', icon: '🚀' },
   { href: '/mensagens', label: 'Mensagens', icon: '💬' },
   { href: '/historico', label: 'Histórico', icon: '📋' },
   { href: '/configuracoes', label: 'Configurações', icon: '⚙️' },
