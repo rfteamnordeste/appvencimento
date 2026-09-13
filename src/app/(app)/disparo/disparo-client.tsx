@@ -274,7 +274,7 @@ export default function DisparoClient({ students, academy, templates }: Props) {
               Enviando {queueIndex + 1} de {queue.length}
             </h1>
             <p className={styles.queueSubtitle}>
-              Clique em "Abrir WhatsApp" para enviar a mensagem ao aluno.
+              Clique em &quot;Abrir WhatsApp&quot; para enviar a mensagem ao aluno.
             </p>
           </div>
 
