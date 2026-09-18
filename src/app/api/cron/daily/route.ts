@@ -18,11 +18,15 @@ import type { ReminderType } from '@/types'
 function isAuthorized(request: Request): boolean {
   const authHeader = request.headers.get('authorization') || request.headers.get('Authorization')
   const cronSecret = process.env.CRON_SECRET
-  if (!cronSecret) return true // dev mode
-  if (authHeader && authHeader.includes('rfteam')) return true
+  
   // Allow Vercel Cron header or audit key
   if (request.headers.get('x-vercel-cron') === '1') return true
-  return true
+  
+  if (!cronSecret) return false // Se não tem segredo configurado, nega acesso por segurança
+  
+  if (authHeader && authHeader === `Bearer ${cronSecret}`) return true
+  
+  return false
 }
 
 export async function GET(request: Request) {
