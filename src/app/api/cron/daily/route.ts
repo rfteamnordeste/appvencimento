@@ -80,20 +80,6 @@ export async function GET(request: Request) {
       for (const student of students) {
         results.processed++
 
-        // Validar telefone
-        if (!student.phone_e164 || !student.phone_e164.startsWith('+55')) {
-          results.errors++
-          await supabase.from('reminder_logs').insert({
-            student_id: student.id,
-            reminder_type: 'd0',
-            scheduled_for: today,
-            status: 'failed',
-            channel: 'whatsapp_link',
-            error_message: `Telefone inválido: ${student.phone_e164}`,
-          })
-          continue
-        }
-
         // Calcular dias até vencimento
         const daysUntilDue = getDaysUntilDue(student.due_day, timezone)
         const reminderType = getReminderTypeForToday(daysUntilDue)
@@ -114,12 +100,26 @@ export async function GET(request: Request) {
           .eq('student_id', student.id)
           .eq('reminder_type', reminderType)
           .eq('scheduled_for', today)
-          .in('status', ['sent', 'pending'])
+          .in('status', ['sent', 'pending', 'failed'])
           .maybeSingle()
 
         if (existingLog) {
           results.skipped++
-          continue // Já enviado ou pendente para este ciclo — não duplicar
+          continue // Já processado (enviado, pendente ou falhou) para este ciclo — não duplicar
+        }
+
+        // Validar telefone
+        if (!student.phone_e164 || !student.phone_e164.startsWith('+55')) {
+          results.errors++
+          await supabase.from('reminder_logs').insert({
+            student_id: student.id,
+            reminder_type: reminderType,
+            scheduled_for: today,
+            status: 'failed',
+            channel: 'whatsapp_link',
+            error_message: `Telefone inválido: ${student.phone_e164}`,
+          })
+          continue
         }
 
         // Garantir que o billing_cycle existe
